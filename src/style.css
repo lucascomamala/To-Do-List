@@ -78,6 +78,7 @@ ul {
   height: auto;
   justify-content: space-evenly;
   border-bottom: grey;
+  border-bottom: 1px solid #EBEBEB;
 }
 
 .list > li > * {
@@ -147,12 +148,18 @@ ul {
 
 a {
   text-decoration: none;
-  color: rgb(3, 3, 3, 0.7);
+  color: #8c8c8c;
   height: min-content;
 }
 
+a:hover {
+  text-decoration: underline;
+  color: #262626;
+}
+
 a:active {
-  color: rgb(3, 3, 3, 0.4);
+  text-decoration: underline;
+  color: #262626;
 }
 
 .clear {
@@ -163,7 +170,7 @@ a:active {
   align-items: center;
   justify-content: center;
   color: grey;
-  background-color: rgb(240, 240, 240);
+  background-color: #F6F6F6;
 }
 
 .options {
