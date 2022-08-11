@@ -78,7 +78,7 @@ ul {
   height: auto;
   justify-content: space-evenly;
   border-bottom: grey;
-  border-bottom: 1px solid #EBEBEB;
+  border-bottom: 1px solid #ebebeb;
 }
 
 .list > li > * {
@@ -170,7 +170,7 @@ a:active {
   align-items: center;
   justify-content: center;
   color: grey;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .options {
