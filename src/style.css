@@ -39,7 +39,7 @@ body {
 .template {
   max-width: 400px;
   width: auto;
-  min-width: 280px;
+  min-width: 600px;
   max-height: 80vh;
   height: auto;
   min-height: 240px;
@@ -76,7 +76,6 @@ ul {
   width: 100%;
   min-height: 40px;
   height: auto;
-  justify-content: space-evenly;
   border-bottom: grey;
   border-bottom: 1px solid #ebebeb;
 }
@@ -144,6 +143,7 @@ ul {
   width: 10px;
   height: 100%;
   padding: 0% 1%;
+  margin-left: auto;
 }
 
 a {
