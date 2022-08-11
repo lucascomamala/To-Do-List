@@ -1,14 +1,24 @@
-import _ from 'lodash';
 import './style.css';
+import HTMLTemplate from './modules/htmlTemplate.js';
+import Item from './modules/listItem.js';
 
-function component() {
-  const element = document.createElement('div');
+// Hard-coded list, will remove later
+const tasks = [];
+tasks.push(new Item('Take out trash'));
+tasks.push(new Item('Walk the dog'));
+tasks.push(new Item('Buy groceries'));
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const myapp = document.getElementById('list-app');
+const template = document.createElement('div');
+const listTitle = 'Today\'s To Do:';
+const inputName = 'add-todo';
+const btnName = 'add-task';
+const listName = 'to-do';
+template.innerHTML = HTMLTemplate(listTitle, inputName, btnName, listName);
+template.classList.add('template');
+myapp.appendChild(template);
 
-  return element;
-}
-
-document.body.appendChild(component());
+const taskList = document.querySelector('.list');
+tasks.forEach((item) => {
+  taskList.appendChild(item.template());
+});
