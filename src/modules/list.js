@@ -22,17 +22,18 @@ export default class List {
   }
 
   retrieveStorage() {
-   if (localStorage.getItem(this.storageName) === null) {
-     this.updateStorage();
-   } else {
-     const tempList = JSON.parse(localStorage.getItem(this.storageName));
-     Object.values(tempList).forEach((item) => {
-       this.list[item.index] = new this.ItemType(item.description, item.completed, item.index);
-     });
-   }
- }
+    if (localStorage.getItem(this.storageName) === null) {
+      this.updateStorage();
+    }
+    else {
+      const tempList = JSON.parse(localStorage.getItem(this.storageName));
+      Object.values(tempList).forEach((item) => {
+        this.list[item.index] = new this.ItemType(item.description, item.completed, item.index);
+      });
+    }
+  }
 
- renderItems() {
+  renderItems() {
     const renders = [];
     Object.values(this.list).forEach((item) => {
       renders.push(item.template(this));
