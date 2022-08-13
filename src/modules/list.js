@@ -10,7 +10,7 @@ export default class List {
   }
 
   fixIndexes() {
-    for (let i = 0; i < this.list.length; i+=1) {
+    for (let i = 0; i < this.list.length; i += 1) {
       this.list[i].index = i;
     }
   }
