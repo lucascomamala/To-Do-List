@@ -99,7 +99,6 @@ ul {
 }
 
 .list > li > input {
-  max-width: 300px;
   width: auto;
   height: auto;
   font-size: 18px;
@@ -179,4 +178,8 @@ a:active {
 
 .options:hover {
   color: rgb(0, 0, 0, 0.8);
+}
+
+#add-todo {
+  flex-grow: 1;
 }

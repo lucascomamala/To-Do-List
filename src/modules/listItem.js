@@ -25,6 +25,9 @@ export default class Item {
       }
       list.updateStorage();
     };
+    if (this.completed) {
+      check.checked = true;
+    }
     check.addEventListener('click', checkTask);
     window.addEventListener('load', () => {
       this.completed = !list.list[this.index].completed;
@@ -35,7 +38,6 @@ export default class Item {
     task.setAttribute('maxlength', '128');
     task.setAttribute('style', 'resize:none;');
     task.setAttribute('onfocus', 'this.style.height = \'0px\'; this.style.height = this.scrollHeight +\'px\'');
-    task.setAttribute('autofocus', 'true');
     task.setAttribute('spellcheck', 'false');
     task.setAttribute('id', `${this.index}`);
     task.addEventListener('input', () => {

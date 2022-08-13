@@ -23,7 +23,7 @@ const clearBtn = document.querySelector(`#${clearName}`);
 
 const list = new List(Item, listName, 'list');
 
-const addtoList = (newItem = false) => {
+const render = (newItem = false) => {
   if (newItem) {
     const item = newItem.template(list);
     setTimeout(() => {}, 0);
@@ -43,7 +43,7 @@ button.addEventListener('click', () => {
   if (input.value.replace('\n', '').replace(' ', '') === '') return; // if user hasn't entered input
   const newItem = new Item(input.value);
   list.addItem(newItem);
-  addtoList(newItem);
+  render(newItem);
   input.value = '';
 });
 
@@ -53,3 +53,5 @@ input.addEventListener('keypress', (event) => {
     button.dispatchEvent(new Event('click'));
   }
 });
+
+render();
