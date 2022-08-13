@@ -11,7 +11,20 @@ export default class Item {
     const check = document.createElement('input');
     check.setAttribute('type', 'checkbox');
     const task = document.createElement('textarea');
-    
+    const checkTask = () => {
+      if (!this.completed) {
+        task.style.textDecoration = 'line-through';
+        task.disabled = true;
+        check.classList.add('check');
+        this.completed = true;
+      } else {
+        task.style.textDecoration = 'none';
+        task.disabled = false;
+        check.classList.remove('check');
+        this.completed = false;
+      }
+      list.updateStorage();
+    };
     check.addEventListener('click', checkTask);
     window.addEventListener('load', () => {
       this.completed = !list.list[this.index].completed;
