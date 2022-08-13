@@ -19,6 +19,7 @@ myapp.appendChild(template);
 const input = document.querySelector(`#${inputName}`);
 const button = document.querySelector(`#${btnName}`);
 const domList = document.querySelector(`#${listName}`);
+const clearBtn = document.querySelector(`#${clearName}`);
 
 const list = new List(Item, listName, 'list');
 
@@ -49,6 +50,11 @@ input.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     button.dispatchEvent(new Event('click'));
   }
+});
+
+clearBtn.addEventListener('click', () => {
+  list.clearCompleted();
+  render();
 });
 
 render();

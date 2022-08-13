@@ -10,7 +10,7 @@ const HTMLTemplate = (title, input, btn, list, clear) => `
     </li>
   </ul>
   <ul id="${list}" class="list list-items"></ul>
-  <div class="clear"><a href="#" id="${clear}" onclick="return false;">Clear all completed</a></div>
+  <div class="clear"><a href="#" id="${clear}">Clear all completed</a></div>
 `;
 
 export default HTMLTemplate;

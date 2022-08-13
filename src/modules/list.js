@@ -9,6 +9,12 @@ export default class List {
     this.retrieveStorage();
   }
 
+  clearCompleted() {
+    this.list = this.list.filter((item) => !item.completed);
+    this.fixIndexes();
+    this.updateStorage();
+  }
+
   fixIndexes() {
     for (let i = 0; i < this.list.length; i += 1) {
       this.list[i].index = i;
