@@ -20,12 +20,18 @@ Includes the following functionality:
 
 ## Live Demo (if available)
 
-[Live Demo Link] (TBA)
+[Live Demo Link](https://lucascomamala.github.io/To-Do-List/)
 
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps. (TBA)
+To get a local copy up and running follow these simple example steps:
+- git clone https://github.com/lucascomamala/To-Do-List.git
+- cd To-Do-List
+- npm install
+- npm run build
+- cd dist
+- index.html
 
 ## Authors
 
