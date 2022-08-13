@@ -28,8 +28,7 @@ const render = (newItem = false) => {
     const item = newItem.template(list);
     setTimeout(() => {}, 0);
     domList.appendChild(item);
-  }
-  else {
+  } else {
     domList.innerHTML = '';
     list.renderItems().forEach((item) => {
       setTimeout(() => {}, 0);
@@ -53,7 +52,6 @@ input.addEventListener('keypress', (event) => {
   }
 });
 
-console.log(clearBtn)
 clearBtn.addEventListener('click', () => {
   list.clearCompleted();
   render();

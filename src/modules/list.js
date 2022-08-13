@@ -10,8 +10,7 @@ export default class List {
   }
 
   clearCompleted() {
-    console.log('H')
-    this.list = this.list.filter(item => !item.completed);
+    this.list = this.list.filter((item) => !item.completed);
     this.fixIndexes();
     this.updateStorage();
   }
@@ -42,8 +41,7 @@ export default class List {
   retrieveStorage() {
     if (localStorage.getItem(this.storageName) === null) {
       this.updateStorage();
-    }
-    else {
+    } else {
       const tempList = JSON.parse(localStorage.getItem(this.storageName));
       Object.values(tempList).forEach((item) => {
         this.list[item.index] = new this.ItemType(item.description, item.index, item.completed);
