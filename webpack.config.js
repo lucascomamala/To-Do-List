@@ -6,11 +6,11 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'docs'),
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   devServer: {
-    static: './docs',
+    static: './dist',
   },
   module: {
     rules: [
