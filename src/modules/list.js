@@ -9,30 +9,21 @@ export default class List {
     this.retrieveStorage();
   }
 
-  assignIndex() {
-
-    return this.list.length;
-  }
-
   fixIndexes() {
-    for (let i = 0; i < this.list.length; i++) {
+    for (let i = 0; i < this.list.length; i+=1) {
       this.list[i].index = i;
-      console.log(this.list[i].index)
     }
-
   }
 
   addItem(value) {
-    let i = this.assignIndex();
-    const newItem = new Item(value, i);
-    this.assignIndex();
+    const newItem = new Item(value, this.list.length);
     this.list[newItem.index] = newItem;
     this.updateStorage();
     return newItem;
   }
 
   removeItem(item) {
-    this.list.splice(item.index, 1)
+    this.list.splice(item.index, 1);
     this.fixIndexes();
     this.updateStorage();
   }
@@ -44,8 +35,7 @@ export default class List {
   retrieveStorage() {
     if (localStorage.getItem(this.storageName) === null) {
       this.updateStorage();
-    }
-    else {
+    } else {
       const tempList = JSON.parse(localStorage.getItem(this.storageName));
       Object.values(tempList).forEach((item) => {
         this.list[item.index] = new this.ItemType(item.description, item.index, item.completed);
@@ -55,7 +45,7 @@ export default class List {
 
   renderItems() {
     const renders = [];
-    Object.values(this.list).forEach((item, i) => {
+    Object.values(this.list).forEach((item) => {
       renders.push(item.template(this));
     });
     return renders;
