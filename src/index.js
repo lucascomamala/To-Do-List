@@ -38,3 +38,19 @@ const addtoList = (newItem = false) => {
   }
   input.select();
 };
+
+// Add a new element to the list
+button.addEventListener('click', () => {
+  if (input.value.replace('\n', '').replace(' ', '') === '') return; // if user hasn't entered input
+  const newItem = new Item(input.value);
+  // list.addItem(list, newItem);
+  addtoList(newItem);
+  input.value = '';
+});
+
+input.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter' && event.shiftKey) return;
+  if (event.key === 'Enter') {
+    button.dispatchEvent(new Event('click'));
+  }
+});
