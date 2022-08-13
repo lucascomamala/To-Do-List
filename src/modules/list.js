@@ -1,19 +1,39 @@
+import Item from './listItem.js';
+
 export default class List {
   constructor(ItemType, listName, storageName = 'list') {
     this.ItemType = ItemType;
     this.storageName = storageName;
     this.listName = listName;
-    this.list = {};
+    this.list = [];
     this.retrieveStorage();
   }
 
-  addItem(item) {
-    this.list[item.index] = item;
+  assignIndex() {
+
+    return this.list.length;
+  }
+
+  fixIndexes() {
+    for (let i = 0; i < this.list.length; i++) {
+      this.list[i].index = i;
+      console.log(this.list[i].index)
+    }
+
+  }
+
+  addItem(value) {
+    let i = this.assignIndex();
+    const newItem = new Item(value, i);
+    this.assignIndex();
+    this.list[newItem.index] = newItem;
     this.updateStorage();
+    return newItem;
   }
 
   removeItem(item) {
-    delete this.list[item.index];
+    this.list.splice(item.index, 1)
+    this.fixIndexes();
     this.updateStorage();
   }
 
@@ -24,17 +44,18 @@ export default class List {
   retrieveStorage() {
     if (localStorage.getItem(this.storageName) === null) {
       this.updateStorage();
-    } else {
+    }
+    else {
       const tempList = JSON.parse(localStorage.getItem(this.storageName));
       Object.values(tempList).forEach((item) => {
-        this.list[item.index] = new this.ItemType(item.description, item.completed, item.index);
+        this.list[item.index] = new this.ItemType(item.description, item.index, item.completed);
       });
     }
   }
 
   renderItems() {
     const renders = [];
-    Object.values(this.list).forEach((item) => {
+    Object.values(this.list).forEach((item, i) => {
       renders.push(item.template(this));
     });
     return renders;

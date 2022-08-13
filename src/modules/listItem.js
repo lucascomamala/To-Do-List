@@ -1,5 +1,5 @@
 export default class Item {
-  constructor(description, completed = false, index = new Date().getTime()) {
+  constructor(description, index = new Date().getTime(), completed = false) {
     this.description = description;
     this.completed = completed;
     this.index = index;

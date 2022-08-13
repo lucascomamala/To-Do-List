@@ -40,9 +40,7 @@ const render = (newItem = false) => {
 // Add a new element to the list
 button.addEventListener('click', () => {
   if (input.value.replace('\n', '').replace(' ', '') === '') return; // if user hasn't entered input
-  const newItem = new Item(input.value);
-  list.addItem(newItem);
-  render(newItem);
+  render(list.addItem(input.value));
   input.value = '';
 });
 
