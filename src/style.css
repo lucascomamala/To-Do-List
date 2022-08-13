@@ -42,7 +42,6 @@ body {
   min-width: 600px;
   max-height: 80vh;
   height: auto;
-  min-height: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
