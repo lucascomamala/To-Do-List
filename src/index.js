@@ -28,8 +28,7 @@ const addtoList = (newItem = false) => {
     const item = newItem.template(list);
     setTimeout(() => {}, 0);
     domList.appendChild(item);
-  }
-  else {
+  } else {
     domList.innerHTML = '';
     list.renderItems().forEach((item) => {
       setTimeout(() => {}, 0);
@@ -43,7 +42,7 @@ const addtoList = (newItem = false) => {
 button.addEventListener('click', () => {
   if (input.value.replace('\n', '').replace(' ', '') === '') return; // if user hasn't entered input
   const newItem = new Item(input.value);
-  // list.addItem(list, newItem);
+  list.addItem(newItem);
   addtoList(newItem);
   input.value = '';
 });

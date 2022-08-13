@@ -6,11 +6,14 @@ export default class List {
     this.list = {};
   }
 
-  removeItem() {
-    
+  addItem(item) {
+    this.list[item.index] = item;
+    this.updateStorage();
   }
 
-  updateStorage() {
-
+  removeItem(item) {
+    delete this.list[item.index];
+    this.updateStorage();
   }
+
 }
