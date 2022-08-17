@@ -1,5 +1,5 @@
 // import Item from './listItem.js';
-const ITEM = require('./listItem.js')
+const ITEM = require('./listItem')
 
 class List {
   constructor(ItemType, listName, storageName = 'list') {
@@ -31,6 +31,12 @@ class List {
 
   removeItem(item) {
     this.list.splice(item.index, 1);
+    this.fixIndexes();
+    this.updateStorage();
+  }
+
+  removeItemByIndex(index) {
+    this.list.splice(index, 1);
     this.fixIndexes();
     this.updateStorage();
   }
