@@ -1,7 +1,10 @@
 import './style.css';
-import HTMLTemplate from './modules/htmlTemplate.js';
-import Item from './modules/listItem.js';
-import List from './modules/list.js';
+// import HTMLTemplate from './modules/htmlTemplate.js';
+// import Item from './modules/listItem.js';
+// import List from './modules/list.js';
+const TEMP = require('./modules/htmlTemplate.js');
+const ITEM = require('./modules/listItem.js');
+const LIST = require('./modules/list.js');
 
 // Builds list HTML
 const myapp = document.getElementById('list-app');
@@ -11,7 +14,7 @@ const inputName = 'add-todo';
 const btnName = 'add-task';
 const listName = 'to-do';
 const clearName = `clear-${listName}`;
-template.innerHTML = HTMLTemplate(listTitle, inputName, btnName, listName, clearName);
+template.innerHTML = TEMP.HTMLTemplate(listTitle, inputName, btnName, listName, clearName);
 template.classList.add('template');
 myapp.appendChild(template);
 
@@ -21,7 +24,7 @@ const button = document.querySelector(`#${btnName}`);
 const domList = document.querySelector(`#${listName}`);
 const clearBtn = document.querySelector(`#${clearName}`);
 
-const list = new List(Item, listName, 'list');
+const list = new LIST.List(ITEM.Item, listName, 'list');
 
 const render = (newItem = false) => {
   if (newItem) {

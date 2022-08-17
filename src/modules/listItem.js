@@ -1,4 +1,4 @@
-export default class Item {
+class Item {
   constructor(description, index = new Date().getTime(), completed = false) {
     this.description = description;
     this.completed = completed;
@@ -88,3 +88,5 @@ export default class Item {
     return li;
   }
 }
+
+exports.Item = Item;

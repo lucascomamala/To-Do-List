@@ -1,6 +1,7 @@
-import Item from './listItem.js';
+// import Item from './listItem.js';
+const ITEM = require('./listItem.js');
 
-export default class List {
+class List {
   constructor(ItemType, listName, storageName = 'list') {
     this.ItemType = ItemType;
     this.storageName = storageName;
@@ -22,7 +23,7 @@ export default class List {
   }
 
   addItem(value) {
-    const newItem = new Item(value, this.list.length);
+    const newItem = new ITEM.Item(value, this.list.length);
     this.list[newItem.index] = newItem;
     this.updateStorage();
     return newItem;
@@ -30,6 +31,12 @@ export default class List {
 
   removeItem(item) {
     this.list.splice(item.index, 1);
+    this.fixIndexes();
+    this.updateStorage();
+  }
+
+  removeItemByIndex(index) {
+    this.list.splice(index, 1);
     this.fixIndexes();
     this.updateStorage();
   }
@@ -57,3 +64,5 @@ export default class List {
     return renders;
   }
 }
+
+exports.List = List;
