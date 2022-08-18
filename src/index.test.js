@@ -5,7 +5,7 @@ import List from "./modules/list.js";
 
 
 
-describe('Add and remove', () => {
+describe('App logic', () => {
   const list = new List(Item, 'testing list', 'test list sto');
   test('Expect addItem to increase list length', () => {
     const listLength = list.list.length;
@@ -17,12 +17,25 @@ describe('Add and remove', () => {
     list.removeItemByIndex(0);
     expect(list.list.length).toBe(listLength - 1);
   });
+
+  test("Expect the 'Clear Completed; to clear all completed tasks", () => {
+    const list = new List(Item, "testing list1", "test list sto1");
+    document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
+    const item1 = list.addItem("Task 1");
+    const item2 = list.addItem("Task 2");
+    const item3 = list.addItem("Task 3");
+    item1.completed = !item1.completed;
+    item3.completed = !item3.completed;
+    list.clearCompleted();
+    expect(list.list).toHaveLength(1);
+  });
 });
 
 describe("DOM Tests", () => {
   jest.mock("./index");
-  const list1 = new List(Item, "testing list", "test list sto");
+  
   test("Expect addItem to add to DOM", () => {
+    const list1 = new List(Item, "testing list0", "test list sto0");
     document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
     const item = (list1.addItem("Task 1")).template();
     document.querySelector("#list").appendChild(item);
@@ -31,6 +44,7 @@ describe("DOM Tests", () => {
   });
 
   test("Expect removeItem to remove from DOM", () => {
+    const list1 = new List(Item, "testing list3", "test list sto3");
     document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
     const item = list1.addItem("Task 1").template();
     document.querySelector("#list").appendChild(item).remove();
@@ -39,6 +53,7 @@ describe("DOM Tests", () => {
   });
 
   test("Expect editing task description", () => {
+    const list1 = new List(Item, "testing list4", "test list sto4");
     const initialText = 'This should change';
     document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
     const item = list1.addItem(initialText).template();
@@ -49,6 +64,7 @@ describe("DOM Tests", () => {
   });
 
   test("Expect updating an item's 'completed' status.", () => {
+    const list1 = new List(Item, "testing list2", "test list sto2");
     document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
     const item = list1.addItem("Task 1");
     document.querySelector("#list").appendChild(item.template());
