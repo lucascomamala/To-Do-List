@@ -47,4 +47,13 @@ describe("DOM Tests", () => {
     li.innerHTML = 'This has changed';
     expect(li.innerHTML).not.toBe(initialText);
   });
+
+  test("Expect updating an item's 'completed' status.", () => {
+    document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
+    const item = list1.addItem("Task 1");
+    document.querySelector("#list").appendChild(item.template());
+    const initialCompleted = item.completed;
+    item.completed = !item.completed;
+    expect(item.completed).not.toBe(initialCompleted);
+  });
 });
