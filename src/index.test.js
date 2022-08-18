@@ -29,4 +29,12 @@ describe("DOM Tests", () => {
     const check = document.querySelectorAll("#list li");
     expect(check).toHaveLength(1);
   });
+
+  test("Expect removeItem to remove from DOM", () => {
+    document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
+    const item = list1.addItem("Task 1").template();
+    document.querySelector("#list").appendChild(item).remove();
+    const check = document.querySelectorAll("#list li");
+    expect(check).toHaveLength(0);
+  });
 });
