@@ -13,4 +13,4 @@ const HTMLTemplate = (title, input, btn, list, clear) => `
   <div class="clear"><a href="#" id="${clear}">Clear all completed</a></div>
 `;
 
-exports.HTMLTemplate = HTMLTemplate;
+export default HTMLTemplate;

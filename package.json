@@ -29,6 +29,7 @@
   },
   "homepage": "http://lucascomamala.github.io/To-Do-List",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
     "css-loader": "^6.7.1",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
