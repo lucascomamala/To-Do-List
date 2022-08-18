@@ -1,5 +1,4 @@
 import Item from './listItem.js';
-// const ITEM = require('./listItem.js');
 
 export default class List {
   constructor(ItemType, listName, storageName = 'list') {

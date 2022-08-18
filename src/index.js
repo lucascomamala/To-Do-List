@@ -2,9 +2,6 @@ import './style.css';
 import HTMLTemplate from './modules/htmlTemplate.js';
 import Item from './modules/listItem.js';
 import List from './modules/list.js';
-// const TEMP = require('./modules/htmlTemplate.js');
-// const ITEM = require('./modules/listItem.js');
-// const LIST = require('./modules/list.js');
 
 // Builds list HTML
 const myapp = document.getElementById('list-app');
