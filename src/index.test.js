@@ -37,4 +37,14 @@ describe("DOM Tests", () => {
     const check = document.querySelectorAll("#list li");
     expect(check).toHaveLength(0);
   });
+
+  test("Expect editing task description", () => {
+    const initialText = 'This should change';
+    document.body.innerHTML = "<div>" + '<ul id="list"></ul>' + "</div>";
+    const item = list1.addItem(initialText).template();
+    document.querySelector("#list").appendChild(item);
+    const li = document.querySelector("#list li");
+    li.innerHTML = 'This has changed';
+    expect(li.innerHTML).not.toBe(initialText);
+  });
 });
