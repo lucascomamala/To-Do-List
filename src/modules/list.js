@@ -1,7 +1,6 @@
-// import Item from './listItem.js';
-const ITEM = require('./listItem.js');
+import Item from './listItem.js';
 
-class List {
+export default class List {
   constructor(ItemType, listName, storageName = 'list') {
     this.ItemType = ItemType;
     this.storageName = storageName;
@@ -23,7 +22,7 @@ class List {
   }
 
   addItem(value) {
-    const newItem = new ITEM.Item(value, this.list.length);
+    const newItem = new Item(value, this.list.length);
     this.list[newItem.index] = newItem;
     this.updateStorage();
     return newItem;
@@ -64,5 +63,3 @@ class List {
     return renders;
   }
 }
-
-exports.List = List;
