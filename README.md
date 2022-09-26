@@ -18,7 +18,7 @@ Includes the following functionality:
 - JavaScript
 - Webpack
 
-## Live Demo (if available)
+## Live Demo
 
 [Live Demo Link](https://lucascomamala.github.io/To-Do-List/)
 
